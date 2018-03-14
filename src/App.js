@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Twit from 'twit';
+var Twit = require('twit');
 var T = new Twit({
   consumer_key:         'HlSvxCHIVJccYSBDV1oYB2E0H',
   consumer_secret:      'iNSEIm97IqsWMCcfZ01xzP1nAOY3QPAtEYozbnScYKmJ9lruuP',
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+        <h1>Test</h1>
       </div>
     );
   }
