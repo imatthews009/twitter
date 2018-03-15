@@ -26,7 +26,7 @@ class App extends Component {
   )
     return (
       <div>
-        <h1>Conan Tweets</h1>
+        <h1>Conan's Tweets</h1>
         {displayTweets}
       </div>
 
