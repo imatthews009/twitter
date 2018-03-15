@@ -3,4 +3,12 @@
   border: 1px black solid;
   margin: 10px auto;
   padding: 0 25px;
+  box-shadow: 1px 3px;
+  background-color: #e6e6e6;
+  
+
+}
+
+h5 {
+  text-align: right;
 }

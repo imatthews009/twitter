@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Tweet from './Components/Tweet/Tweet'
+import './App.css'
 
 
 class App extends Component {
@@ -18,14 +19,17 @@ class App extends Component {
   }
 
   render() {
+    const displayTweets = this.state.tweets.map((tweet) => <Tweet 
+                                                        text={tweet.text}
+                                                        id={tweet.id_str}
+                                                        date={tweet.created_at}/>
+  )
     return (
-      (this.state.tweets.map((tweet) => {
-        return (
-          <Tweet 
-                text={tweet.text}
-                id={tweet.id_str}/>
-              )
-      }))
+      <div>
+        <h1>Conan Tweets</h1>
+        {displayTweets}
+      </div>
+
     );
   }
 }
