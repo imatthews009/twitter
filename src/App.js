@@ -12,6 +12,8 @@ var request = require('request');
 var consumer_key = 'HlSvxCHIVJccYSBDV1oYB2E0H';
 var consumer_secret = 'iNSEIm97IqsWMCcfZ01xzP1nAOY3QPAtEYozbnScYKmJ9lruuP';
 var encode_secret = new Buffer(consumer_key + ':' + consumer_secret).toString('base64');
+var twitter_api = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+var bearer_token = '';
 
 class App extends Component {
   state = {
@@ -34,10 +36,31 @@ class App extends Component {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
       body: 'grant_type=client_credentials'
     };
-
+    
     request.post(options, function(error, response, body) {
-      console.log(body); // <<<< This is your BEARER TOKEN !!!
+      console.log('body', body); // <<<< This is your BEARER TOKEN !!!
+      console.log(response.body[39]); 
+      bearer_token = body;
     });
+    
+    var options2 = {
+      method: 'GET',
+      url: twitter_api,
+      qs: {
+          "screen_name": "ConanOBrien",
+          "count": 10
+      },
+      json: true,
+      headers: {
+          "Authorization": "Bearer " + "AAAAAAAAAAAAAAAAAAAAAAW%2F4wAAAAAA%2FEe73bUkPKgtiHX0DZpPtH7hA0M%3D1n9nvhJn3gLiELtKnR3Kbcxfe6V1lz10pmnKTs9GSZXJRN98qt"
+      }
+    };
+    
+    // request(options2, function(error, response, body) {
+    //   console.log('bearer', bearer_token);
+    //   console.dir(body);
+    //   console.dir(error);
+    // });
   }
 
   render() {
